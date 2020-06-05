@@ -171,7 +171,7 @@
 
     <#-- 公共底部代码，包含：统计代码，底部信息 -->
     <#include "footer.ftl">
-
+      
     <#--全局的JavaScript脚本-->
     <script type="text/javascript" src="${theme_base!}/source/js/index.js"></script>
     <script type="text/javascript" src="${theme_base!}/source/js/navbar.js"></script>
