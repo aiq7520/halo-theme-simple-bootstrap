@@ -18,16 +18,32 @@ $(function () {
     links.each(function () {
         let name = $(this).find(".hide-link-name").val();
         let url = $(this).find(".hide-link-url").val();
+		let logo = $(this).find(".hide-link-logo").val();
         let description = $(this).find(".hide-link-description").val();
         let team = $(this).find(".hide-link-team").val();
         team = team && team.trim() || defaultCategoryName;
         !(team in linkObj) && (linkObj[team] = []); // 数组赋初值
         linkObj[team].push(
-            `<span class='border-bottom pt-3 pb-2'>
+            `<span class='pt-3 pb-2'>
                 <a class="link" target="_blank" href="${url}" 
                 data-toggle="popover" 
-                data-placement="bottom" 
-                data-content="${description || name}">${name}</a>
+                data-placement="bottom">
+                    <div class="card bg-light mb-3" style="max-width: 20rem;">
+                      <div class="card-header"><div style="text-align: center;">${name}</div></div>
+                      <div class="row no-gutters">
+                        <div class="col-md-4">
+                          <img src="${logo}" class="card-img"
+                               style="width: 5rem;height: 5rem;border-radius:50%;margin-top: 1rem;
+                                      margin-left: 0.5rem;-webkit-border-radius:50%;-moz-border-radius:50%;" alt="">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="card-text"><small class="text-muted">${description || name}</small></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </a>
             </span>`
         );
     });
